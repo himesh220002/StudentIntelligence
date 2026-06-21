@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Intelligence Dashboard Architecture</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        .diagram {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #3498db;
+            color: #fff;
+        }
+
+        .pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .status-completed { color: #27ae60; font-weight: bold; }
+        .status-pending { color: #f39c12; font-weight: bold; }
+    </style>
+</head>
+
+<body>
+    <h1>Student Performance Intelligence System – Architecture & Expansion</h1>
+
+    <!-- Workflow Diagram -->
+    <div class="diagram">
+        <h2>📊 App Workflow & Data Journey</h2>
+        <p>This diagram represents the step-by-step data journey within the Streamlit application, from data ingestion
+            to advanced visualizations.</p>
+        <div class="mermaid">
+            flowchart TD
+            A[✅ 📂 Data Source Selection] --> B{✅ Source Type?}
+            B -->|Upload New/Raw| C[✅ 🚀 Run Data Cleaning Pipeline]
+            B -->|Select Processed| D[✅ ⚡ Load Directly]
+            C --> E[✅ 📊 Compute Features]
+            D --> E
+            E --> F[✅ 🎯 Apply Interactive Filters]
+            F --> G[✅ 📈 Render Executive Dashboard]
+            G --> H[✅ 🔍 Detect At-Risk Students]
+            G --> I[✅ ✨ Display Engagement Charts & Radar]
+        </div>
+    </div>
+
+    <!-- Feature Engineering Diagram -->
+    <div class="diagram">
+        <h2>⚙️ Feature Engineering & Metrics</h2>
+        <p>Before the data is visualized, we calculate several complex metrics to determine student performance and
+            engagement.</p>
+        <div class="mermaid">
+            flowchart LR
+            FE[✅ Feature Engineering]
+            FE --> E[✅ Engagement Index]
+            FE --> A[✅ Avg Test Score]
+            FE --> R[✅ Dynamic Rank]
+            FE --> I[✅ Intervention Recommendation]
+            FE --> C[✅ Consistency Matrix]
+            FE --> ER[✅ Efficiency Ratio]
+            FE --> T[✅ Tuition Impact Delta]
+
+            E --> E1[✅ Focus + Homework + Q&A]
+            A --> A1[✅ Average of Unit Tests]
+            R --> R1[✅ Dense Rank by Filtered Subset]
+            I --> I1[✅ Multi-factor: Avg Score, UT3, Engagement]
+            C --> C1[✅ Trend of UT1 to UT3]
+            ER --> ER1[✅ Doubt Asking Rate / Focus]
+            T --> T1[✅ Score delta per Engagement Bracket] </div>
+        </div>
+
+    <!-- Recent Architectural Upgrades -->
+    <div class="diagram">
+        <h2>🏗️ Recent Dashboard Architectural Upgrades</h2>
+        <p>The system was recently refactored to support complex random data sets and provide deeper analytics:</p>
+        <ul>
+            <li><strong>Dynamic Schema Normalizer:</strong> Added frontend parsing to automatically normalize misnamed columns (e.g. <code>Attendence(0-100)</code> -> <code>Attendance (%)</code>) preventing formula breakage on randomized datasets.</li>
+            <li><strong>Robust At-Risk Engine:</strong> Moved intervention logic from the UI into the core feature engineering pipeline. Students are now evaluated on three pillars: Avg Test Score (< 50%), Unit Test 3 (< 40%), and Engagement (< 40%).</li>
+            <li><strong>Strict Subject Aggregation:</strong> Comprehensive Academic Profiles now strictly match students by <code>Name + Class + Section</code> to prevent data bleeding across different students with identical first names. Averages are mathematically computed across all matched subjects.</li>
+            <li><strong>Radar Geometry Fallbacks:</strong> Patched Plotly string multiplication scaling bugs and implemented geometric fallbacks (auto-rendering Bar Charts when a student is filtered to fewer than 3 subjects, since polygons require 3+ points).</li>
+            <li><strong>GenAI Action Plans:</strong> Integrated NVIDIA's <code>meta/llama-3.3-70b-instruct</code> model directly into the Deep-Dive view to generate formatted markdown action plans for Parents and Teachers based on the student's live analytics.</li>
+        </ul>
+    </div>
+
+        <!-- Visualizations Diagram -->
+        <div class="diagram">
+            <h2>📈 Dashboard Visualization Components</h2>
+            <p>The UI is split into several interactive modules tailored for educational insights.</p>
+            <div class="mermaid">
+                graph TD
+                UI[✅ User Interface Components]
+                UI --> M[✅ Executive Metrics]
+                M --> M1["✅ Top KPIs<br>Places: Top Header Row"]
+                UI --> C1[✅ Correlation Analysis]
+                C1 --> C11["✅ Risk Quadrant Matrix<br>Tool: Plotly"]
+                UI --> C2[✅ Engagement Analysis]
+                C2 --> C21["✅ Subject-Wise Metric Heatmap<br>Tool: Plotly"]
+                UI --> C3[✅ Individual Deep-Dive]
+                C3 --> C31["✅ Personal Potential Radar<br>Tool: Plotly"]
+                C3 --> C32["✅ Cross-Subject Radar<br>Tool: Plotly"]
+
+                style M1 fill:#bbdefb,stroke:#1976d2,color:#000
+                style C11 fill:#bbdefb,stroke:#1976d2,color:#000
+                style C21 fill:#bbdefb,stroke:#1976d2,color:#000
+                style C31 fill:#bbdefb,stroke:#1976d2,color:#000
+                style C32 fill:#bbdefb,stroke:#1976d2,color:#000
+            </div>
+        </div>
+
+        <div class="diagram">
+            <h2>🎯 AI Agent Workflow (Next Level)</h2>
+            <div class="mermaid">
+                flowchart TD
+                A[✅ 📂 Data Source Selection] --> B{✅ Source Type?}
+                B -->|Upload CSV/Excel| C[✅ 🚀 Run Data Cleaning Pipeline]
+                B -->|Select Processed| D[✅ ⚡ Load Directly]
+                C --> E[✅ 📊 Feature Engineering & Indexes]
+                D --> E
+
+                %% Expanded Analytics Core
+                E --> F[✅ 🎯 Apply Interactive Filters]
+                F --> G[✅ 🔮 ML Analytics Engine]
+                G --> G1[✅ Random Forest: Churn & Failure Risk]
+                G --> G2[✅ K-Means: Student Archetype Clustering]
+
+                %% Advanced UI Output
+                G1 & G2 --> H[✅ 📈 Render Executive Dashboard]
+                H --> I[✅ 🔍 Smart Intervention Center]
+                I --> I1[✅ 🤖 GenAI Hyper-Personalised Study Plans]
+                I --> I2[✅ 📑 Automated Parent Report Cards]
+                H --> J[✅ ✨ Engagement Radar & Matrix Charts]
+
+
+                style A fill:#e1bee7
+                style B fill:#bbdefb
+                style C fill:#bbdefb
+                style D fill:#ffccbc
+                style E fill:#bbdefb
+                style F fill:#e8f5e9
+                style G fill:#fff9c4
+                style G1 fill:#fff9c4
+                style G2 fill:#fff9c4
+                style H fill:#bbdefb
+                style I fill:#e8f5e9
+                style I1 fill:#c8e6c9
+                style I2 fill:#c8e6c9
+                style J fill:#e1bee7
+            </div>
+        </div>
+
+        <!-- Feature Expansion Table -->
+        <div class="diagram">
+            <h2>🚀 Where We Can Expand More</h2>
+            <p>These are the potential future features we can integrate to scale the application from a reporting tool
+                to an AI-driven predictive platform.</p>
+            <table>
+                <tr>
+                    <th>Expansion Area</th>
+                    <th>Status</th>
+                    <th>Proposed Enhancement</th>
+                    <th>Technologies / Tools</th>
+                </tr>
+                <tr>
+                    <td><strong>Predictive Analytics</strong></td>
+                    <td><span class="status-completed">✅ Completed</span></td>
+                    <td>Train ML models (Random Forest / XGBoost) to predict final exam failures based on early test
+                        scores.</td>
+                    <td>Scikit-Learn, XGBoost</td>
+                </tr>
+                <tr>
+                    <td><strong>Generative AI Recommendations</strong></td>
+                    <td><span class="status-completed">✅ Completed</span></td>
+                    <td>Use LLMs to generate personalized study plans for each underperforming student based on their
+                        weakest subjects.</td>
+                    <td>OpenAI API, NVIDIA NIM, LangChain</td>
+                </tr>
+                <tr>
+                    <td><strong>Real-Time Database</strong></td>
+                    <td><span class="status-completed">✅ Completed</span></td>
+                    <td>Integrate with a cloud database (PostgreSQL/MongoDB) to fetch live student data from an LMS.
+                    </td>
+                    <td>SQLAlchemy, PostgreSQL</td>
+                </tr>
+                <tr>
+                    <td><strong>NLP on Teacher Notes</strong></td>
+                    <td><span class="status-completed">✅ Completed</span></td>
+                    <td>Analyze qualitative teacher comments to gauge student behavioral sentiment.</td>
+                    <td>HuggingFace, VADER Sentiment</td>
+                </tr>
+                <tr>
+                    <td><strong>Parent/Student Portal</strong></td>
+                    <td><span class="status-completed">✅ Completed</span></td>
+                    <td>Role-based access control (RBAC) where parents can log in and see only their child's radar
+                        charts.</td>
+                    <td>Streamlit-Authenticator / FastAPI</td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            mermaid.initialize({
+                startOnLoad: true
+            });
+        </script>
+</body>
+
+</html>

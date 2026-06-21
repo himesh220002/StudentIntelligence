@@ -1,0 +1,12 @@
+# Dataset Images (DO NOT COMMIT)
+data/raw/images/
+
+# Python Virtual Environments
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+
+# Local Configs
+.streamlit/secrets.toml
